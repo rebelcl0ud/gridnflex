@@ -62,7 +62,7 @@ h1 {
 
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: auto 500px 200px auto;
   grid-auto-rows: minmax(200px, auto);
   grid-gap: 10px;
@@ -71,7 +71,7 @@ h1 {
 .box-1 {
   padding: 25px;
   background: red;
-  grid-column: 1 / 7;
+  grid-column: 1 / 13;
   grid-row: 1 / 2;
   text-align: center;
   justify-content: center;
@@ -95,30 +95,30 @@ h1 {
 .box-2 {
   padding: 25px;
   background: cyan;
-  grid-column: 6 / 7;
+  grid-column: 10 / 13;
 }
 
 .box-3 {
   padding: 25px;
   background: green;
-  grid-column: 1 / 4;
+  grid-column: 1 / 7;
 }
 
 .box-4 {
   padding: 25px;
   background: orange;
-  grid-column: 1 / 6;
+  grid-column: 1 / 10;
   grid-row: 2 / 3;
 }
 
 .box-5 {
   padding: 25px;
   background: blue;
-  grid-column: 4 / 7;
+  grid-column: 7 / 13;
 }
 
 .box-6 {
   padding: 25px;
   background: lightblue;
-  grid-column: 1 / 7;
+  grid-column: 1 / 13;
 }
