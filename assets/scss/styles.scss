@@ -38,17 +38,40 @@ h1 {
   font-weight: 100;
   font-size: 50px;
 }
-/**
-  justify-items: start | end | center | stretch; [col placement]
-  align-items: start | end | center | stretch; [row placement]
 
-  nice way to even out pixel width col [ie: grid-template-columns: 200px 200px 200px;]
-  justify-content: start | end | space-around | space-between | space-evenly
+/** 
+  flex-wrap used to move excess onto new line; otherwise will try to contain it all in one row.
+
+  flex-direction: row | row-reverse | column | colummn-reverse
+  flex-wrap: wrap | wrap-reverse
+
+  flex-flow [shorthand for flex-direction and flex-wrap]
+
+  -- horizontal --
+  justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly
+
+  -- vertical --
+  align-items: flex-start | flex-end | center | stretch | baseline
+
+  align-content: flex-start | flex-end | center | space-between | space-around | stretch 
+
+  align-self: flex-start | flex-end | center | baseline | auto | stretch
+
+  -- changes order of items --
+  order: #
+
+  -- putting this in a box will grow it to max capable width/ height --
+  1 w/ numerous boxes will equally distribute, 2+ essentially acts as if it adds a col to span on w.e item it is put
   
-  grid-column-gap: 20px;
-  grid-row-gap: 10px;
-  grid-gap: 25px;
+  flex-grow: #
 
+  row, horizontal; col, vertical
+
+  -- --
+  flex-shrink: #; how much item will shrink relative to other items
+  flex-basis: #px; minimum height this will be
+
+  shorthand; flex: grow# shrink# basis #px;
 */
 
 * {
@@ -61,86 +84,64 @@ h1 {
 }
 
 .wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto 500px 200px auto;
-  grid-auto-rows: minmax(200px, auto);
-  grid-gap: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  background: pink;
+  height: 500px;
+  align-items: center;
+  /*align-content: stretch;*/
 }
 
 .box-1 {
-  padding: 25px;
+  /*flex-grow: 4;
+  flex-basis: 100px;*/
+  width: 100px;
+  height: 100px;
   background: red;
-  grid-column: 1 / 13;
-  grid-row: 1 / 2;
-  text-align: center;
-  justify-content: center;
-
-  nav {
-    width: 400px;
-    /*display: grid;*/
-    display: block;
-    margin: 0 auto;
-    justify-items: center;
-    grid-template-columns: 1fr 1fr 1fr;
-
-    a {
-      background-color: black;
-      color: white;
-      padding: 5px;
-    }
-  }
+  border: 1px solid black;
 }
 
 .box-2 {
-  padding: 25px;
+  /*flex-grow: 2;*/
+  width: 400px;
+  height: 200px;
   background: cyan;
-  grid-column: 10 / 13;
+  border: 1px solid black;
 }
 
 .box-3 {
-  padding: 25px;
-  background: green;
-  grid-column: 1 / 7;
+  /*flex-grow: 2;*/
+  width: 100px;
+  height: 300px;
+  background: red;
+  border: 1px solid black;
+  align-self: center;
 }
 
 .box-4 {
-  padding: 25px;
-  background: orange;
-  grid-column: 1 / 10;
-  grid-row: 2 / 3;
+  /*flex-grow: 2;*/
+  width: 100px;
+  height: 400px;
+  background: red;
+  border: 1px solid black;
+  align-self: auto;
 }
 
 .box-5 {
-  padding: 25px;
-  background: blue;
-  grid-column: 7 / 13;
+  /*flex-grow: 2;*/
+  width: 100px;
+  /*height: 500px;*/
+  background: yellow;
+  border: 1px solid black;
+  align-self: baseline;
 }
 
 .box-6 {
-  padding: 25px;
-  background: lightblue;
-  grid-column: 1 / 13;
-}
-
-@media screen and (max-width: 500px) {
-  .wrapper {
-    grid-template-rows: auto auto 200px auto;
-    grid-auto-rows: minmax(200px, auto);
-    grid-gap: 10px;
-  }
-  .box-4 {
-    grid-column: 1 / 13;
-    grid-row: 2 / 6;
-  }
-  .box-2 {
-    grid-column: 1 / 13;
-
-  }
-  .box-3 {
-    grid-row: 6 / 7;
-  }
-  .box-5 {
-    grid-row: 6 / 7;
-  }
+  /*flex-grow: 2;*/
+  width: 100px;
+  /*height: 600px;*/
+  background: red;
+  border: 1px solid black;
+  align-self: flex-end;
 }
